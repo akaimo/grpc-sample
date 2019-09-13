@@ -1,9 +1,9 @@
 package main
 
 import (
-	"net"
-	"log"
 	"context"
+	"log"
+	"net"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
@@ -11,7 +11,7 @@ import (
 	pb "akaimo.com/grpc-sample/api"
 )
 
-type routeGuideServer struct {}
+type routeGuideServer struct{}
 
 func (s *routeGuideServer) GetFeature(ctx context.Context, point *pb.Point) (*pb.Feature, error) {
 	return &pb.Feature{Location: point}, nil
