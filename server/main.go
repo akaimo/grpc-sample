@@ -6,6 +6,7 @@ import (
 	"context"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 
 	pb "akaimo.com/grpc-sample/api"
 )
@@ -27,6 +28,7 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 	grpcServer := grpc.NewServer()
+	reflection.Register(grpcServer)
 	pb.RegisterRouteGuideServer(grpcServer, newServer())
-	grpcServer.Serve(lis)
+	_ = grpcServer.Serve(lis)
 }
