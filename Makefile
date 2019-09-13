@@ -4,3 +4,9 @@ gen:
 .PHONY: server
 server:
 	go run server/main.go
+
+grpcurl:
+	grpcurl -plaintext -d '{"latitude": 10, "longitude": 20}' localhost:10000 RouteGuide.GetFeature
+
+list:
+	grpcurl -plaintext localhost:10000 list RouteGuide
