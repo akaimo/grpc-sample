@@ -3,7 +3,7 @@ gen:
 
 .PHONY: server
 server:
-	go run server/main.go
+	GODEBUG=http2debug=2 go run server/main.go
 
 grpcurl:
 	grpcurl -plaintext -d '{"latitude": 10, "longitude": 20}' localhost:10000 RouteGuide.GetFeature
