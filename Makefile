@@ -10,3 +10,6 @@ grpcurl:
 
 list:
 	grpcurl -plaintext localhost:10000 list RouteGuide
+
+describe:
+	grpcurl -plaintext localhost:10000 describe RouteGuide.GetFeature
